@@ -1,0 +1,26 @@
+/* .MOD_HEADER1 {font-family: "ＭＳ 明朝",serif;} */
+
+/*
+input {
+  display: none; /* デフォルトのボタンを非表示にする */
+}
+*/
+
+label {
+  color: #fff;        /* 文字色を白に指定 */
+  font-size: 30px;    /* 文字サイズを30pxに指定 */
+  background: #f90;   /* 背景色をオレンジに指定 */
+  padding: 10px 20px; /* 余白を指定 */
+  animation: flash 1s infinite; /* アニメーションflashを1秒ごとに繰り返す */
+}
+
+@keyframes flash {
+  0%, 100% {
+    /* 明るく光るよう影を重ねる */
+    box-shadow: 0 0 10px #ffc, 0 0 20px #ffc, 0 0 30px #ff9, 0 0 40px #ff6, 0 0 70px #fc6, 0 0 80px #f99, 0 0 100px #ff96, 0 0 150px #ff96;
+  }
+  50% {
+    /* 淡く光るよう影を重ねる */
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffc, 0 0 40px #ff9;
+  }
+}

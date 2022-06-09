@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/epoch.min.js"></script>
+    <script src="js/data.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/epoch.min.css">
+    <link rel="stylesheet" type="text/css" href="css/coin.css">
+
+    <link rel="stylesheet" href="css/style2.css">
+    <title>testFile</title>
+
+    <!-- <link rel="stylesheet" href="assets/css/3D Animated.css">　アニメ-->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/kara-.css">
+    <link rel="stylesheet" href="css/modules.css">
+
+    <!--<script language="JavaScript">
+
+        function imagePop(imageName)
+        {
+        document.images[imageName].width=84;
+        document.images[imageName].height=62;
+        }
+        function imageDown(imageName)
+        {
+        document.images[imageName].width=64;
+        document.images[imageName].height=48;
+        }
+        function imagePop1(imageName)
+        {
+        document.images[imageName].width=85;
+        document.images[imageName].height=85;
+        }
+        function imageDown1(imageName)
+        {
+        document.images[imageName].width=75;
+        document.images[imageName].height=75;
+        }
+
+    </script type="text/javascript" src="./rectangle.js">-->
+
+</head>
+
+
+
+<body class="default">
+
+
+    <!--
+
+    <header class="MOD_HEADER1">
+
+
+        <section class="MOD_HERO" style="background-image:url(https://bittimes.net/wp-content/uploads/2017/01/20170121.png)">
+
+            <div data-layout="_r">
+                <div data-layout="al16 de10" class="MOD_HEADER1_Title">
+                    <p id="example4">
+                        <h1 class="MOD_HEADER1_TextLogo">Cryptocurrency Simulation </h1>
+                    <p class="MOD_HEADER1_Slogan">現在4種類対応　機能デザインなど拡張予定</p>
+
+
+
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+    <div id="particles">
+
+        <div class="overlay"></div>
+        <div id="intro">
+
+            <h2> <img src="title2.png" width="75%" height="75%"> </h2>
+
+            <p>現在4種類対応　機能デザインなど拡張予定</p>
+
+        </div>
+    </div>
+         -->
+    <!--このコメントアウトの行を７０行くらいに移動させてアニメの宣言をonにするとアニメは動く(スクロールできない)-->
+    <div id="particles">
+        <div class="overlay"></div>
+        <div id="intro">
+            <h1> <img src="png/title2.png" width="75%" height="75%"></h1>
+
+            <p>現在4種類対応　機能デザインなど拡張予定</p>
+
+        </div>
+    </div>
+
+
+    <div data-layout="_r">
+        <div data-layout="de10">
+
+            <p id="example">BTC。</p>
+            <!--  グラフ１-->
+            <div style="text-align: center">
+                <div id="real-time-line-BTC" class="epoch" style="height: 500px"></div>
+            </div>
+            <div>
+                <p>現在のレート</p>
+                <span class="rate_coins" id="rate_BTC_coins">0</span>
+                <p></p>
+                <span class="difference_rate" id="difference_BTC_rate">0</span>
+            </div>
+            <div>
+                <p>合計金額</p>
+                <span class="total_money" id="total_BTC_money"></span>
+            </div>
+            <div>
+                <p>合計枚数</p>
+                <span class="total_coins" id="total_BTC_coins"></span>
+            </div>
+            <p>買う数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfBTC_buy" name="tentacles"
+                   min="1" max="10000" value="1">
+            <div class="buy">
+                <button onclick="addTableRowBuy('BTC_buy');">買う</button>
+                <table id="BTC_buy" border="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p>売る数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfBTC_sell" min="1" max="10000" value="1"/>
+            <div class="sell">
+                <button onclick="addTableRowSell('BTC_sell');">売る</button>
+                <table id="BTC_sell" border="1" value="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div data-layout="_r">
+        <div data-layout="de10">
+
+            <p id="example1">ETH。</p>
+
+
+            <!--  グラフ2-->
+            <div style="text-align: center">
+                <div id="real-time-line-ETH" class="epoch" style="height: 500px"></div>
+            </div>
+            <div>
+                <p>現在のレート</p>
+                <span class="rate_coins" id="rate_ETH_coins">0</span>
+                <p></p>
+                <span class="difference_rate" id="difference_ETH_rate">0</span>
+            </div>
+            <div>
+                <p>合計金額<p>
+                    <span class="total_money" id="total_ETH_money"></span>
+            </div>
+            <div>
+                <p>合計枚数</p>
+                <span class="total_coins" id="total_ETH_coins"></span>
+            </div>
+            <p>買う数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfETH_buy" name="tentacles"
+                   min="1" max="10000" value="1">
+            <div class="buy">
+                <button onclick="addTableRowBuy('ETH_buy');">買う</button>
+                <table id="ETH_buy" border="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+            <p>売る数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfETH_sell" min="1" max="10000" value="1"/>
+            <div class="sell">
+                <button onclick="addTableRowSell('ETH_sell');">売る</button>
+                <table id="ETH_sell" border="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+    <div data-layout="_r">
+        <div data-layout="de10">
+
+            <p id="example2">XEM。</p>
+
+            <!--  グラフ3-->
+            <div style="text-align: center">
+                <div id="real-time-line-XEM" class="epoch" style="height: 500px"></div>
+            </div>
+            <div>
+                <p>現在のレート</p>
+                <span class="rate_coins" id="rate_XEM_coins">0</span>
+                <p></p>
+                <span class="difference_rate" id="difference_XEM_rate">0</span>
+            </div>
+            <div>
+                <p>合計金額<p>
+                    <span class="total_money" id="total_XEM_money"></span>
+            </div>
+            <div>
+                <p>合計枚数</p>
+                <span class="total_coins" id="total_XEM_coins"></span>
+            </div>
+            <p>買う数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfXEM_buy" name="tentacles"
+                   min="1" max="10000" value="1">
+            <div class="buy">
+                <button onclick="addTableRowBuy('XEM_buy');">買う</button>
+                <table id="XEM_buy" border="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+            <p>売る数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfXEM_sell" min="1" max="10000" value="1"/>
+            <div class="sell">
+                <button onclick="addTableRowSell('XEM_sell');">売る</button>
+                <table id="XEM_sell" border="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+
+    <div data-layout="_r">
+        <div data-layout="de10">
+
+            <p id="example3">BCH</p>
+
+            <!--  グラフ4-->
+            <div style="text-align: center">
+                <div id="real-time-line-BCH" class="epoch" style="height: 500px"></div>
+            </div>
+            <div>
+                <p>現在のレート</p>
+                <span class="rate_coins" id="rate_BCH_coins">0</span>
+                <p></p>
+                <span class="difference_rate" id="difference_BCH_rate">0</span>
+            </div>
+            <div>
+                <p>合計金額<p>
+                    <span class="total_money" id="total_BCH_money"></span>
+            </div>
+            <div>
+                <p>合計枚数</p>
+                <span class="total_coins" id="total_BCH_coins"></span>
+            </div>
+            <p>買う数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfBCH_buy" name="tentacles"
+                   min="1" max="10000" value="1">
+            <div class="buy">
+                <button onclick="addTableRowBuy('BCH_buy');">買う</button>
+                <table id="BCH_buy" border="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+            <p>売る数値を入力してください(1～10000)</p>
+            <input type="number" id="numOfBCH_sell" min="1" max="10000" value="1"/>
+            <div class="sell">
+                <button onclick="addTableRowSell('BCH_sell');">売る</button>
+                <table id="BCH_sell" border="1">
+                    <tr>
+                        <td>時間</td>
+                        <td>金額</td>
+                        <td>枚数</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+
+
+    <div data-layout="_r">
+        <div data-layout="ch-half">
+            <p></p>
+        </div>
+        <div data-layout="ch-half">
+            <p></p>
+        </div>
+    </div>
+
+
+
+    <!--
+
+    <a href="#" id="page-top1">
+
+        <i class="blogicon-chevron-up">
+            <img src="image000.jpg" width=64 height=48
+                 name="pic5" onMouseover="imagePop('pic5')"
+                 onMouseout="imageDown('pic5')" style="position:absolute;right: 50px;  top:8px;">
+        </i>
+    </a>
+
+    -->
+    <!--メニュー -->
+
+    <aside>
+        <ul class="asideList">
+            <li><a href="#" class="asideAnchor">TOPへ戻る</a></li>
+            <li><a href="#example" class="asideAnchor">BTC</a></li>
+            <li><a href="#example1" class="asideAnchor">ETH</a></li>
+            <li><a href="#example2" class="asideAnchor">XEM</a></li>
+            <li><a href="#example3" class="asideAnchor">BCH</a></li>
+
+        </ul>
+    </aside>
+
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/3D Animated.js"></script>
+    <script type="text/javascript" src="js/coin.js"></script>
+
+</body>
+
+
+
+
+</html>
+
